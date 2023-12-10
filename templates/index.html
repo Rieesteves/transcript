@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Transcription</title>
+</head>
+<body>
+    <h1 align="center">YouTube Video Transcription</h1>
+    <form method="post" align = "center ">
+        <label for="youtube_url">YouTube URL:</label>
+        <input type="text" id="youtube_url" name="youtube_url" required><br><br>
+        <button type="submit" style="background-color: #4CAF50; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer;">Transcribe</button>
+
+    </form>
+    {% if transcribed_text %}
+        <h2>Transcript:</h2>
+        <p>{{ transcribed_text }}</p>
+        <video width="560" height="315" controls>
+            <source src="{{ url_for('static', filename='video.mp4') }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    {% endif %}
+</body>
+</html>
